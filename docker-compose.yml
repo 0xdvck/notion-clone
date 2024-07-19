@@ -1,0 +1,18 @@
+services:
+  app:
+    # will build ./docker/web/Dockerfile
+    build: ./app
+    ports:
+     - "80:80"
+    networks:
+      - notion
+  server:
+    # will build ./docker/db/Dockerfile
+    build: ./server
+    ports:
+      - "8080:8080"
+    networks:
+      - notion
+
+networks:
+  notion:
