@@ -15,7 +15,9 @@ export const selectData = createSelector(
       const keys = Object.keys(item);
       const newItem: { [index: string]: any } = {};
 
-      keys.forEach((key) => (newItem[key] = item[key]?.value || ""));
+      keys.forEach((key) => {
+        newItem[key] = item[key]?.value == null ? "" : item[key]?.value;
+      });
       return newItem;
     });
     return data;

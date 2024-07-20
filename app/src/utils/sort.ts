@@ -27,7 +27,6 @@ const sortByMultiSelect = (a: string[], b: string[]) => {
   const _a = a.join("").toLocaleUpperCase();
   const _b = b.join("").toLocaleUpperCase();
 
-  console.log(_a);
   let result = 0;
   if (_a > _b) result = 1;
   if (_a < _b) result = -1;
@@ -65,6 +64,7 @@ const sortByMapper: {
   select: sortByString,
   checkbox: sortByBoolean,
   multi_select: sortByMultiSelect,
+  unique_id: sortByNumber,
 };
 
 function compareByFields<T extends CRM>(

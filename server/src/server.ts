@@ -98,6 +98,9 @@ const server = http.createServer(async (req, res) => {
                 property[type]?.map((select: { name: any }) => select.name) ||
                 [];
               break;
+            case NotionType.DATE:
+              data = property[type].start;
+              break;
             case NotionType.CHECKBOX:
               data = property[type];
               break;

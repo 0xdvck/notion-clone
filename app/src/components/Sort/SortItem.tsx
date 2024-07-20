@@ -8,7 +8,6 @@ export function SortItem(props: any) {
   const id = props.id;
   const dispatch = useDispatch();
   const fields = useSelector(selectFields);
-  console.log(fields);
 
   const [selectedField, setSelectedField] = useState("");
   const [selectedDirection, setSelectedDirection] = useState("asc");

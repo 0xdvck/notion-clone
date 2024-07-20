@@ -1,5 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
-import ReactDOM from "react-dom/client";
+import { useMemo, useRef } from "react";
 
 import {
   useReactTable,
@@ -18,7 +17,7 @@ export function Table() {
       return {
         header: field,
         accessorKey: field.toLocaleLowerCase(),
-        cell: (info: { getValue: () => unknown }) => info.getValue(),
+        cell: (info: { getValue: () => unknown }) => info.getValue().toString(),
       };
     });
   }, [fields]);
@@ -54,8 +53,8 @@ export function Table() {
               <tr key={headerGroup.id}>
                 {headerGroup.headers.map((header) => (
                   <th
+                    key={header.id}
                     {...{
-                      key: header.id,
                       colSpan: header.colSpan,
                       style: {
                         width: header.getSize(),
